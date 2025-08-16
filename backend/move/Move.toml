@@ -1,0 +1,10 @@
+[package]
+name = "CropInsurance"
+version = "1.0.0"
+upgrade_policy = "compatible"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework", rev = "main" }
+
+[addresses]
+crop_insurance = "0x6651ef3efd557d3501610dc079bdb6c6eb4bbdceb1c579a31ee830fc35bacffe"
