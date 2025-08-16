@@ -1,242 +1,52 @@
-# 🌾 Crop Insurance dApp
-
-A decentralized application for crop insurance built on the Aptos blockchain with a modern React frontend and Node.js backend.
-
-## 🚀 Features
-
-- **Farmer Registration**: Register as a farmer with location and crop type
-- **Insurance Policies**: Purchase crop insurance policies with premium and payout
-- **Policy Management**: View and manage your insurance policies
-- **Modern UI**: Beautiful, responsive interface with glass morphism design
-- **Backend Integration**: RESTful API for data persistence
-- **Blockchain Integration**: Smart contracts on Aptos blockchain
-
-## 🏗️ Architecture
-
-```
-├── crop-insurance-client/     # React frontend
-├── backend/                   # Node.js backend
-│   ├── move/                  # Move smart contracts
-│   ├── src/                   # Backend source code
-│   └── server.js              # Express server
-└── README.md                  # This file
-```
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 19** with TypeScript
-- **Aptos Wallet Adapter** for blockchain integration
-- **Modern CSS** with glass morphism effects
-
-### Backend
-- **Node.js** with Express
-- **In-memory storage** (can be replaced with MongoDB)
-- **RESTful API** for data management
-
-### Blockchain
-- **Aptos** blockchain
-- **Move** smart contracts
-- **Devnet** for testing
-
-## 📦 Installation
-
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- Aptos CLI (for contract deployment)
-
-### 1. Clone the Repository
-```bash
-git clone <repository-url>
-cd Hackathon
-```
-
-### 2. Install Frontend Dependencies
-```bash
-cd crop-insurance-client
-npm install
-```
-
-### 3. Install Backend Dependencies
-```bash
-cd ../backend
-npm install
-```
-
-## 🚀 Quick Start
-
-### 1. Deploy Smart Contract
-
-#### Option A: Using Aptos CLI (Recommended)
-```bash
-# Install Aptos CLI
-winget install AptosLabs.AptosCLI
-
-# Navigate to move directory
-cd backend/move
-
-# Initialize Aptos project
-aptos init
-
-# Update Move.toml with your account address
-# Replace "YOUR_ACCOUNT_ADDRESS" in the file
-
-# Deploy contract
-aptos move publish
-```
-
-#### Option B: Using Deployment Script
-```bash
-cd backend
-node deploy.js YOUR_PRIVATE_KEY_HEX
-```
-
-### 2. Update Module Address
-Copy your deployed account address and update `crop-insurance-client/src/App.tsx`:
-```typescript
-const MODULE_ADDRESS = "YOUR_ACCOUNT_ADDRESS";
-```
-
-### 3. Start Backend Server
-```bash
-cd backend
-npm start
-```
-
-### 4. Start Frontend Application
-```bash
-cd crop-insurance-client
-npm start
-```
-
-### 5. Connect Wallet
-1. Open your browser to `http://localhost:3000`
-2. Install Petra wallet extension
-3. Connect your wallet
-4. Switch to Devnet network
-
-## 📋 Usage
-
-### Register as Farmer
-1. Connect your wallet
-2. Enter your location and crop type
-3. Click "Register"
-4. Approve the transaction in your wallet
-
-### Buy Insurance Policy
-1. Enter premium amount (what you pay)
-2. Enter payout amount (what you receive if claim)
-3. Click "Buy Policy"
-4. Approve the transaction in your wallet
-
-### View Policy Status
-1. Click "Fetch Policy Status"
-2. Check the browser console for policy details
-
-## 🔧 Smart Contract Functions
-
-### Public Entry Functions
-- `register_farmer(location, crop_type)` - Register a new farmer
-- `buy_policy(premium, payout)` - Purchase insurance policy
-- `claim_policy()` - Claim insurance payout
-
-### View Functions
-- `get_farmer_info(address)` - Get farmer details
-- `get_policy_info(address)` - Get policy details
-- `is_farmer_registered(address)` - Check if farmer is registered
-- `has_policy(address)` - Check if address has a policy
-
-## 🌐 API Endpoints
-
-### Farmers
-- `POST /api/farmers` - Register a farmer
-- `GET /api/farmers/:address` - Get farmer by address
-- `GET /api/farmers` - Get all farmers
-
-### Policies
-- `POST /api/policies` - Create a policy
-- `GET /api/policies/:address` - Get policies by address
-- `GET /api/policies` - Get all policies
-
-### Health
-- `GET /api/health` - Health check
-
-## 🎨 UI Features
-
-- **Glass Morphism**: Modern translucent design
-- **Gradient Backgrounds**: Beautiful color schemes
-- **Hover Effects**: Interactive animations
-- **Responsive Design**: Works on all devices
-- **Loading States**: Visual feedback during transactions
-
-## 🔒 Security
-
-- **Input Validation**: All inputs are validated
-- **Error Handling**: Comprehensive error handling
-- **Transaction Safety**: Secure blockchain transactions
-- **Private Key Protection**: Never expose private keys
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Wallet Not Connecting**
-   - Ensure Petra wallet is installed
-   - Switch to Devnet network
-   - Check wallet permissions
-
-2. **Transaction Fails**
-   - Verify sufficient balance for gas fees
-   - Check if module address is correct
-   - Ensure contract is deployed
-
-3. **Backend Not Starting**
-   - Check if port 4000 is available
-   - Verify all dependencies are installed
-   - Check console for error messages
-
-### Error Codes
-- `ENOT_AUTHORIZED = 1` - Not authorized
-- `EFARMER_NOT_REGISTERED = 2` - Farmer not registered
-- `EINVALID_PREMIUM = 3` - Invalid premium amount
-- `EINVALID_PAYOUT = 4` - Invalid payout amount
-- `EPOLICY_ALREADY_EXISTS = 5` - Policy already exists
-- `EPOLICY_NOT_FOUND = 6` - Policy not found
-
-## 🔄 Development
-
-### Adding New Features
-1. Update Move contract in `backend/move/Insurance.move`
-2. Deploy updated contract
-3. Update frontend to use new functions
-4. Test thoroughly
-
-### Backend Development
-1. Add new routes in `backend/src/routes/`
-2. Update models if needed
-3. Test API endpoints
-4. Update frontend integration
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For support and questions:
-- Check the troubleshooting section
-- Review the deployment guide
-- Open an issue on GitHub
-
----
-
-**Happy Farming! 🌾🚀**
+Crop Insurance dApp (Aptos + Move + React + Express)
+Introduction
+This project is a decentralized crop insurance application built using the Move programming language on the Aptos blockchain.
+It allows farmers to register, buy crop insurance policies, and view policy status — all while interacting seamlessly with a backend service for data persistence and a React-based frontend for user interaction.
+Key Features
+•	Smart Contract: Written in Move, deployed on Aptos Testnet.
+•	Frontend: React + TypeScript interface with Petra wallet integration.
+•	Backend: Express.js API with MongoDB or PostgreSQL (configurable).
+•	Wallet Integration: Supports Petra wallet for signing transactions.
+•	Hybrid Mode: Demo mode to test without blockchain connection.
+________________________________________
+System Architecture
+User (Browser) │ ├─► React Frontend (TypeScript, Wallet Adapter) │ │ │ ├─► Petra Wallet → Aptos Blockchain (Move Contract) │ │ │ └─► Express Backend → Database (MongoDB/Postgres) │ └─► REST API (Farmer data & policies off-chain)
+•	On-chain operations (Aptos):
+o	Register farmer (store location, crop type on blockchain)
+o	Buy crop insurance policy (premium, payout stored on-chain)
+o	Fetch policy status from Aptos node
+•	Off-chain operations (Backend):
+o	Save farmer profiles to DB
+o	Save insurance policy data (with tx hash)
+o	Provide REST endpoints to frontend
+________________________________________
+Project Structure
+crop-insurance-dapp/ │ ├── move_contracts/ │ ├── sources/ │ │ └── Insurance.move # Move smart contract │ ├── Move.toml │ └── build/ # Compiled contract artifacts │ ├── crop-insurance-client/ # React Frontend │ ├── src/ │ │ ├── App.tsx │ │ ├── index.tsx │ │ └── ... │ └── package.json │ └── crop-insurance-server/ # Express Backend ├── src/ │ ├── index.js / app.js │ └── routes/ ├── package.json └── ...
+________________________________________
+Prerequisites
+•	Node.js v18+ and npm or yarn
+•	Aptos CLI: Install guide
+•	Petra Wallet extension: Install Petra
+•	MongoDB / PostgreSQL for backend persistence
+•	Move / Aptos SDK: installed automatically via npm
+________________________________________
+Usage
+1.	Open the frontend in browser (http://localhost:3000)
+2.	Connect Petra Wallet using the "Connect Wallet" button.
+3.	Register Farmer – enter your location and crop type → signs on-chain transaction.
+4.	Buy Policy – enter premium and payout → signs on-chain transaction.
+5.	View Policies – fetches both on-chain and off-chain data.
+6.	Demo Mode – toggle to test without wallet or blockchain.
+Integration Details
+•	**Frontend–Wallet: Uses @aptos-labs/wallet-adapter-react to connect Petra wallet.
+•	**Frontend–Blockchain: Uses @aptos-labs/ts-sdk to submit transactions.
+•	**Frontend–Backend: Uses REST fetch calls to save and retrieve policy data.
+•	**Backend–Database: Stores farmer/policy info and tx hashes for quick access.
+Future Improvements
+•	**Add premium calculation based on weather or yield data
+•	**Integrate Chainlink oracles for real-world data
+•	**Implement policy payout automation
+•	**Add testing scripts for Move contract and backend API
+Thank You
+Team Name : Crypto Trio
+Members : M N V V SAI BABU, K PUSHPA RAJU, P MALLIKHARJUN
